@@ -38,9 +38,7 @@
   ;USE(function(module){
     var SEA = USE('./root');
     if(SEA.window){
-      if(location.protocol.indexOf('s') < 0
-      && location.host.indexOf('localhost') < 0
-      && location.protocol.indexOf('file:') < 0){
+      if((!navigator.userAgent.includes('AgregoreDesktop/') && !navigator.userAgent.includes('HybridDesktop/')) && !isSecureContext){
         location.protocol = 'https:'; // WebCrypto does NOT work without HTTPS!
       }
     }
